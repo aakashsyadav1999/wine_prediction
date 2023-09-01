@@ -14,6 +14,14 @@ jobs:
           python train.py  # generate plot.png
           
           # Create CML report
-          cat metrics.txt >> report.md
-          echo '![Model Metric](feature_importance.png "feature_importance")' >> report.md
-          cml comment create report.md
+          name: Upload failed tests
+          if: ${{ failure() }}
+          uses: edunad/actions-image@v2.0.0
+          with:
+              path: './feature_importance/**/*.png'
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              title: 'Failed E2E tests 🙀'
+              annotationLevel: 'failure'  
+          # cat metrics.txt >> report.md
+          # echo '![Model Metric](feature_importance.png "feature_importance")' >> report.md
+          # cml comment create report.md
