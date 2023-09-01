@@ -11,10 +11,9 @@ jobs:
           python train.py  # generate plot.png
 
 
- 
           echo "## Model metrics" > report.md
           cat metrics.txt >> report.md
 
-          cml-send-comment report.md
+          cml comment create report.md
         env:
             REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
