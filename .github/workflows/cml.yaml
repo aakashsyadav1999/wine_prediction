@@ -18,4 +18,9 @@ jobs:
           echo "## Model Metrics" > report.md
           cat metrics.txt >> report.md
 
+          echo "\n## Model Performance"
+          echo "Model Performance metrics are on the plot below" >> report.md
+
+          cml-publish feature_importance.png --md >> report.md
+
           cml-send-comment report.md
