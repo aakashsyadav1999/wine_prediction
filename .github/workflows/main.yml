@@ -12,5 +12,5 @@ jobs:
         run: |
           pip install -r requirements.txt
           python train.py  # generate plot.png
-
-          cml publish ./feature_importance.png --md >> report.md
+          
+          ![check](/feature_importance.png) --md >> report.md
