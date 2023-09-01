@@ -6,6 +6,7 @@ jobs:
     container: docker://ghcr.io/iterative/cml:0-dvc2-base1
     steps:
       - uses: actions/checkout@v3
+      - uses: iterative/setup-cml@v1
       - name: Train model
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -17,5 +18,5 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
             echo 'My first CML report' > report.md
-            echo '![](./feature_importance.png)' >> report.md
+            echo '![inline](./feature_importance.png)' >> report.md
             cml comment create --publish report.md
