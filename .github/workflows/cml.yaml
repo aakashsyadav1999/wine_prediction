@@ -12,9 +12,6 @@ jobs:
         run: |
           pip install -r requirements.txt
           python train.py  # generate plot.png
-           - uses: actions/upload-artifact@v3
-      - uses: actions/upload-artifact@v3
-        with:
-            name: test artifacts
-            path: |
-              feature_importance.png
+      - name: Publish PNG file
+        run: |
+            cml-publish feature_importance.png
