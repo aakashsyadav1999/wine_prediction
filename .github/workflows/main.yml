@@ -15,5 +15,5 @@ jobs:
           
           # Create CML report
           cat metrics.txt >> report.md
-          echo '![Model Metric](./feature_importance.png "feature_importance")' >> report.md
+          echo '![Model Metric](feature_importance.png "feature_importance")' >> report.md
           cml comment create report.md
