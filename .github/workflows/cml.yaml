@@ -16,4 +16,4 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-            cml-publish feature_importance.png
+            cml comment ![inline](./feature_importance)
